@@ -16,7 +16,20 @@ describe('Controller: MainCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+  it('should have no todo to start', function () {
+    expect(scope.todos.length).toBe(0);
+  });
+
+  it('应该添加一个TODO到list', function () {
+    scope.todo = 'test 1';
+    scope.addTodo();
+    expect(scope.todos.length).toBe(1);
+  });
+
+  it('delTodo应该从list中删除一个todo', function () {
+    scope.todo = 'test1';
+    scope.addTodo();
+    scope.delTodo(0);
+    expect(scope.todos.length).toBe(0);
   });
 });
