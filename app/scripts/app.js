@@ -8,7 +8,8 @@
  *
  * Main module of the application.
  */
-angular
+
+var app = angular
   .module('mytodoApp', [
     'ngAnimate',
     'ngCookies',
@@ -18,9 +19,11 @@ angular
     'ngTouch',
     'ui.sortable',
     'LocalStorageModule'
-  ]).config(['localStorageServiceProvider', function (localStorageServiceProvider) {
+  ]);
+  app.config(['localStorageServiceProvider', function (localStorageServiceProvider) {
     localStorageServiceProvider.setPrefix('ls');
-  }]).config(function ($routeProvider) {
+  }]);
+  app.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
